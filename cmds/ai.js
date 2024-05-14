@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 async function chatGPTCommand(event, api) {
-  const response = await axios.get('https://chatgpt.ai/');
+  const response = await axios.get('https://hashier-api-groq.vercel.app/api/groq/mistral?ask=');
   const $ = cheerio.load(response.data);
   const nonce = $('[data-nonce]').attr('data-nonce');
   const post_id = $('[data-post-id]').attr('data-post-id');
@@ -39,4 +39,3 @@ async function chatGPTCommand(event, api) {
 }
 
 module.exports = chatGPTCommand;
- 
